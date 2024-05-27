@@ -16,14 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+
 from store.views import *
 
 
 admin.site.site_header="StoreFront Administration"
 admin.site.index_title="Admin"
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('hellow/', hellow, name="hellow"),
+    path('store/',include('store.urls')),
+
+
 ]

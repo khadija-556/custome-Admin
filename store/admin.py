@@ -35,9 +35,9 @@ class ProductAdmin(admin.ModelAdmin):
     }
     #fields=['title','price','membership','inventory']
     exclude=['promotions']
-    list_display=['title','price','membership','inventory_status','collection_title']
+    list_display=['title','price','inventory_status','collection_title']
     list_per_page=5
-    list_editable=['price','membership']
+    list_editable=['price']
     list_select_related=['collection']
     search_fields=['title']
     list_filter=['title','collection',InventoryFilter]
@@ -54,7 +54,7 @@ class ProductAdmin(admin.ModelAdmin):
     
 ###### Collection   
 @admin.register(Collection)
-class collectionAdmin(admin.ModelAdmin):
+class CollectionAdmin(admin.ModelAdmin):
     list_display=['title','products_count']
     search_fields=['title']
     
